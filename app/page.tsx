@@ -50,7 +50,7 @@ export default function Home() {
 							Google Search
 						</button>
 						<button className="bg-blue-500 text-white px-3 py-1 rounded-sm ">
-							{"I&apos;m a React component"}
+							{"I'm a React component"}
 						</button>
 					</div>
 					<div className=" flex  ">
