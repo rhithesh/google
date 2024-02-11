@@ -1,9 +1,21 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import Hello from "./google.png";
 import Search from "./search.png";
 import voice from "./voice.png";
 import camera from "./camera.webp";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+	const [query, setquery] = useState("");
+	const router = useRouter();
+
+	function search() {
+		const url = `https://www.google.com/search?q=${query}`;
+
+		router.push(url);
+	}
 	return (
 		<div className="flex flex-col min-h-screen w-screen  ">
 			<div className="h-[5vh]   space-x-3 flex justify-end pt-2 mr-3">
@@ -25,8 +37,13 @@ export default function Home() {
 							src={Search}
 							alt="Google search"
 							width={35}
+							onClick={() => {
+								search();
+							}}
 						/>
 						<input
+							value={query}
+							onChange={(e) => setquery(e.target.value)}
 							type="text"
 							className=" pl-2  basis-[80%] w-[350px] sm:w-[430px]  rounded-3xl   outline-none"
 						/>
@@ -36,6 +53,9 @@ export default function Home() {
 							alt="Google voice"
 							width={35}
 							src={voice}
+							onClick={() => {
+								search();
+							}}
 						/>
 						<Image
 							className=" mr-4  scale-125  "
@@ -43,6 +63,9 @@ export default function Home() {
 							width={25}
 							height={45}
 							src={camera}
+							onClick={() => {
+								search();
+							}}
 						/>
 					</div>
 					<div className=" flex  justify-evenly ">
@@ -50,7 +73,7 @@ export default function Home() {
 							Google Search
 						</button>
 						<button className="bg-blue-500 text-white px-3 py-1 rounded-sm ">
-							{"I'm a React component"}
+							{"I'm felling good"}
 						</button>
 					</div>
 					<div className=" flex  ">
