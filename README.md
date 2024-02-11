@@ -1,1 +1,1 @@
-This is a google clone made for my friend.
+#This is a google clone made for my friend.
